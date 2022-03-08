@@ -26,6 +26,7 @@ public class BirdMovement : MonoBehaviour
     void Update()
     {
 
+
         if (Input.GetMouseButtonDown(0))
         {
             // bird movement will start after left click mouse button

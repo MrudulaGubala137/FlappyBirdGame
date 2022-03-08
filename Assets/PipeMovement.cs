@@ -5,7 +5,7 @@ using UnityEngine;
 public class PipeMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int speed;
+    public float speed;
     public int score;
     ScoreCalculator scoreCalculator;
     void Start()
