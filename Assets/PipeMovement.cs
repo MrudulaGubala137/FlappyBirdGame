@@ -7,28 +7,27 @@ public class PipeMovement : MonoBehaviour
     // Start is called before the first frame update
     public float speed;
     public int score;
-    ScoreCalculator scoreCalculator;
+    BirdMovement birdMovement;
+
     void Start()
     {
-        scoreCalculator=GameObject.Find("ScoreManager").GetComponent<ScoreCalculator>();
+        birdMovement = GameObject.Find("Player").GetComponent<BirdMovement>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
-        if (transform.position.x <= -4)
+        if (birdMovement.isGameOver == false)
         {
-           Destroy(gameObject);
-           
+            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+            if (transform.position.x <= -4f)
+            {
+                Destroy(gameObject);
+
+            }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            scoreCalculator.ScoreManager(0);
-            
-        }
-    }
+       
+    
 }
